@@ -9,6 +9,7 @@ int		main(int ac, char **av)
 {
 	int 	i = 0;
 	int 	total = 0;
+	int 	average = 0;
 	int 	fd;
 	char	*line = NULL;
 
@@ -20,6 +21,8 @@ int		main(int ac, char **av)
 		total += ft_atoi(line);
 		i++;
 	}
-	printf("average : %d/%d = %d\n", total, i, total/i);
+	//	printf("average : %d/%d = %d\n", total, i, total/i);
+	average = total/i;
+	printf("average : \e[32m %d\n", average);
 	return (0);
 }
