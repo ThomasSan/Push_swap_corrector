@@ -1,13 +1,12 @@
 #!/bin/bash
 
 
-echo -e '\e[39mTesting validity a Hundred Times in a range from 0 to 4'
+echo -e '\033[0mTesting validity a Hundred Times in a range from 0 to 4'
 ERR=0
 for i in range {1..99}
 	do 
 		ARG=`ruby -e "puts (0..4).to_a.shuffle.join(' ')"`
 		RET=`./push_swap $ARG | ./checker $ARG`
-			((ERR++))
 		if [ "$RET" != "OK" ];
 			then
 			((ERR++))
@@ -16,13 +15,13 @@ done
 
 if [ $ERR -eq 0 ];
 	then
-	echo -e '\e[32mSuccess'
+	echo -e '\033[0;32m Success'
 else
-	echo -e "\e[31m Fail $ERR / 100"
+	echo -e "\033[0;31m Fail $ERR / 100"
 fi
 
 
-echo -e '\e[39mTesting length a Hundred Times in a range from 0 to 4 '
+echo -e '\033[0mTesting length a Hundred Times in a range from 0 to 4 '
 ERR=0
 for i in range {1..99}
 	do 
@@ -36,13 +35,13 @@ done
 
 if [ $ERR -eq 0 ];
 	then
-	echo -e '\e[32mSuccess'
+	echo -e '\033[0;32m Success'
 else
-	echo -e "\e[31m Fail $ERR / 100"
+	echo -e "\033[0;31m Fail $ERR / 100"
 fi
 
 
-echo -e '\e[39mTesting a Hundred Times in a range from -50 to 49'
+echo -e '\033[0mTesting a Hundred Times in a range from -50 to 49'
 ERR=0
 for i in range {1..99}
 	do 
@@ -56,13 +55,13 @@ done
 
 if [ $ERR -eq 0 ];
 	then
-	echo -e '\e[32mSuccess'
+	echo -e '\033[0;32m Success'
 else
-	echo -e "\e[31m Fail $ERR / 100"
+	echo -e "\033[0;31m Fail $ERR / 100"
 fi
 
 
-echo -e '\e[39mTesting a Hundred Times in a range from -99 to 0'
+echo -e '\033[0mTesting a Hundred Times in a range from -99 to 0'
 ERR=0
 for i in range {1..99}
 	do 
@@ -76,12 +75,12 @@ done
 
 if [ $ERR -eq 0 ];
 	then
-	echo -e '\e[32mSuccess'
+	echo -e '\033[0;32m Success'
 else
-	echo -e "\e[31m Fail $ERR / 100"
+	echo -e "\033[0;31m Fail $ERR / 100"
 fi
 
-echo -e '\e[39mTesting a Hundred Times in a range from 0 to 99'
+echo -e '\033[0mTesting a Hundred Times in a range from 0 to 99'
 ERR=0
 for i in range {1..99}
 	do 
@@ -95,13 +94,13 @@ done
 
 if [ $ERR -eq 0 ];
 	then
-	echo -e '\e[32mSuccess'
+	echo -e '\033[0;32m Success'
 else
-	echo -e "\e[31m Fail $ERR / 100"
+	echo -e "\033[0;31m Fail $ERR / 100"
 fi
 
 
-echo -e '\e[39mTesting a Hundred Times in a range from 0 to 499'
+echo -e '\033[0mTesting a Hundred Times in a range from 0 to 499'
 ERR=0
 for i in range {1..99}
 	do 
@@ -115,13 +114,13 @@ done
 
 if [ $ERR -eq 0 ];
 	then
-	echo -e '\e[32mSuccess'
+	echo -e '\033[0;32m Success'
 else
-	echo -e "\e[31m Fail $ERR / 100"
+	echo -e "\033[0;31m Fail $ERR / 100"
 fi
 
 
-echo -e '\e[39mGetting an average in a range from 0 to 99'
+echo -e '\033[0mGetting an average in a range from 0 to 99'
 ERR=0
 for i in range {1..99}
 	do 
@@ -130,12 +129,12 @@ for i in range {1..99}
 done
 
 ./tester res
-
-echo -e '\e[39mGetting an average in a range from 0 to 499'
+rm res
+echo -e '\033[0mGetting an average in a range from 0 to 499'
 ERR=0
 for i in range {1..99}
 	do 
-		ARG=`ruby -e "puts (0..99).to_a.shuffle.join(' ')"`
+		ARG=`ruby -e "puts (0..499).to_a.shuffle.join(' ')"`
 		RET=`./push_swap $ARG | wc -l >> res`
 done
 
