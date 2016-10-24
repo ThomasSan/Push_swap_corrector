@@ -139,4 +139,4 @@ for i in range {1..99}
 done
 
 ./tester res
-
+rm res
