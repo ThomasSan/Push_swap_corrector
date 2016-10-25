@@ -7,7 +7,6 @@ for i in range {1..99}
 	do 
 		ARG=`ruby -e "puts (0..4).to_a.shuffle.join(' ')"`
 		RET=`./push_swap $ARG | ./checker $ARG`
-			((ERR++))
 		if [ "$RET" != "OK" ];
 			then
 			((ERR++))
@@ -131,11 +130,13 @@ done
 
 ./tester res
 
+rm res
+
 echo -e '\e[39mGetting an average in a range from 0 to 499'
 ERR=0
 for i in range {1..99}
 	do 
-		ARG=`ruby -e "puts (0..99).to_a.shuffle.join(' ')"`
+		ARG=`ruby -e "puts (0..499).to_a.shuffle.join(' ')"`
 		RET=`./push_swap $ARG | wc -l >> res`
 done
 
