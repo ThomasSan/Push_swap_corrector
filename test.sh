@@ -1,7 +1,6 @@
 #!/bin/bash
 
-
-echo -e '\e[39mTesting validity a Hundred Times in a range from 0 to 4'
+echo -e '\033[0mTesting validity a Hundred Times in a range from 0 to 4'
 ERR=0
 for i in range {1..99}
 	do 
@@ -10,18 +9,21 @@ for i in range {1..99}
 		if [ "$RET" != "OK" ];
 			then
 			((ERR++))
+			echo -en '\033[0;31m▓\033[0;0m'
+		else
+			echo -en '\033[0;32m▓\033[0;0m'
 		fi
 done
 
 if [ $ERR -eq 0 ];
 	then
-	echo -e '\e[32mSuccess'
+	echo -e '\033[0;32m Success'
 else
-	echo -e "\e[31m Fail $ERR / 100"
+	echo -e "\033[0;31m Fail $ERR / 100"
 fi
 
 
-echo -e '\e[39mTesting length a Hundred Times in a range from 0 to 4 '
+echo -e '\033[0mTesting length a Hundred Times in a range from 0 to 4 '
 ERR=0
 for i in range {1..99}
 	do 
@@ -30,18 +32,21 @@ for i in range {1..99}
 		if [ $RET -gt 12 ];
 			then
 			((ERR++))
+			echo -en '\033[0;31m▓\033[0;0m'
+		else
+			echo -en '\033[0;32m▓\033[0;0m'
 		fi
 done
 
 if [ $ERR -eq 0 ];
 	then
-	echo -e '\e[32mSuccess'
+	echo -e '\033[0;32m Success'
 else
-	echo -e "\e[31m Fail $ERR / 100"
+	echo -e "\033[0;31m Fail $ERR / 100"
 fi
 
 
-echo -e '\e[39mTesting a Hundred Times in a range from -50 to 49'
+echo -e '\033[0mTesting a Hundred Times in a range from -50 to 49'
 ERR=0
 for i in range {1..99}
 	do 
@@ -50,18 +55,21 @@ for i in range {1..99}
 		if [ "$RET" != "OK" ];
 			then
 			((ERR++))
+			echo -en '\033[0;31m▓\033[0;0m'
+		else
+			echo -en '\033[0;32m▓\033[0;0m'
 		fi
 done
 
 if [ $ERR -eq 0 ];
 	then
-	echo -e '\e[32mSuccess'
+	echo -e '\033[0;32m Success'
 else
-	echo -e "\e[31m Fail $ERR / 100"
+	echo -e "\033[0;31m Fail $ERR / 100"
 fi
 
 
-echo -e '\e[39mTesting a Hundred Times in a range from -99 to 0'
+echo -e '\033[0mTesting a Hundred Times in a range from -99 to 0'
 ERR=0
 for i in range {1..99}
 	do 
@@ -70,17 +78,20 @@ for i in range {1..99}
 		if [ "$RET" != "OK" ];
 			then
 			((ERR++))
+			echo -en '\033[0;31m▓\033[0;0m'
+		else
+			echo -en '\033[0;32m▓\033[0;0m'
 		fi
 done
 
 if [ $ERR -eq 0 ];
 	then
-	echo -e '\e[32mSuccess'
+	echo -e '\033[0;32m Success'
 else
-	echo -e "\e[31m Fail $ERR / 100"
+	echo -e "\033[0;31m Fail $ERR / 100"
 fi
 
-echo -e '\e[39mTesting a Hundred Times in a range from 0 to 99'
+echo -e '\033[0mTesting a Hundred Times in a range from 0 to 99'
 ERR=0
 for i in range {1..99}
 	do 
@@ -89,18 +100,21 @@ for i in range {1..99}
 		if [ "$RET" != "OK" ];
 			then
 			((ERR++))
+			echo -en '\033[0;31m▓\033[0;0m'
+		else
+			echo -en '\033[0;32m▓\033[0;0m'
 		fi
 done
 
 if [ $ERR -eq 0 ];
 	then
-	echo -e '\e[32mSuccess'
+	echo -e '\033[0;32m Success'
 else
-	echo -e "\e[31m Fail $ERR / 100"
+	echo -e "\033[0;31m Fail $ERR / 100"
 fi
 
 
-echo -e '\e[39mTesting a Hundred Times in a range from 0 to 499'
+echo -e '\033[0mTesting a Hundred Times in a range from 0 to 499'
 ERR=0
 for i in range {1..99}
 	do 
@@ -109,18 +123,26 @@ for i in range {1..99}
 		if [ "$RET" != "OK" ];
 			then
 			((ERR++))
+			echo -en '\033[0;31m▓\033[0;0m'
+		else
+			echo -en '\033[0;32m▓\033[0;0m'
 		fi
 done
 
 if [ $ERR -eq 0 ];
 	then
-	echo -e '\e[32mSuccess'
+	echo -e '\033[0;32m Success'
 else
-	echo -e "\e[31m Fail $ERR / 100"
+	echo -e "\033[0;31m Fail $ERR / 100"
 fi
 
+if [ -e "./res" ]
+	then
+	echo "\033[0merasing res file"
+	rm res
+fi
 
-echo -e '\e[39mGetting an average in a range from 0 to 99'
+echo -e '\033[0mGetting an average in a range from 0 to 99'
 ERR=0
 for i in range {1..99}
 	do 
@@ -131,8 +153,7 @@ done
 ./tester res
 
 rm res
-
-echo -e '\e[39mGetting an average in a range from 0 to 499'
+echo -e '\033[0mGetting an average in a range from 0 to 499'
 ERR=0
 for i in range {1..99}
 	do 
@@ -141,4 +162,4 @@ for i in range {1..99}
 done
 
 ./tester res
-
+rm res

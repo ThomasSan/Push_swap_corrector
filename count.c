@@ -16,12 +16,16 @@ int		main(int ac, char **av)
 	if (ac == 1)
 		return (0);
 	fd = open(av[1], O_RDONLY);
-	while (get_next_line(fd, &line) >= -1)
+	if (fd == -1)
+	{
+		printf("wrong filename\n");
+		return (0);
+	}
+	while (get_next_line(fd, &line))
 	{
 		total += ft_atoi(line);
 		i++;
 	}
-	//	printf("average : %d/%d = %d\n", total, i, total/i);
 	average = total/i;
 	printf("average : \e[32m %d\n", average);
 	return (0);
